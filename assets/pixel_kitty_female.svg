@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 56" width="144" height="168">
+  <!-- Hello Kitty Female - High Detail Pixel Art -->
+  <defs>
+    <style>
+      .w { fill: #ffffff; }
+      .b { fill: #1a1a1a; }
+      .p { fill: #ff1493; }
+      .y { fill: #ffcc00; }
+      .bl { fill: #00aaff; }
+      .r { fill: #ff0000; }
+    </style>
+  </defs>
+  
+  <!-- === HEAD WITH BLACK OUTLINE === -->
+  <!-- Top outline -->
+  <rect x="12" y="4" width="24" height="1" class="b"/>
+  <rect x="10" y="5" width="2" height="1" class="b"/>
+  <rect x="36" y="5" width="2" height="1" class="b"/>
+  
+  <!-- Left outline -->
+  <rect x="9" y="6" width="1" height="3" class="b"/>
+  <rect x="8" y="9" width="1" height="3" class="b"/>
+  <rect x="7" y="12" width="1" height="10" class="b"/>
+  <rect x="8" y="22" width="1" height="3" class="b"/>
+  <rect x="9" y="25" width="1" height="2" class="b"/>
+  <rect x="10" y="27" width="2" height="1" class="b"/>
+  
+  <!-- Right outline -->
+  <rect x="38" y="6" width="1" height="3" class="b"/>
+  <rect x="39" y="9" width="1" height="3" class="b"/>
+  <rect x="40" y="12" width="1" height="10" class="b"/>
+  <rect x="39" y="22" width="1" height="3" class="b"/>
+  <rect x="38" y="25" width="1" height="2" class="b"/>
+  <rect x="36" y="27" width="2" height="1" class="b"/>
+  
+  <!-- Bottom outline -->
+  <rect x="12" y="28" width="24" height="1" class="b"/>
+  
+  <!-- HEAD FILL -->
+  <rect x="10" y="6" width="28" height="21" class="w"/>
+  <rect x="9" y="9" width="1" height="16" class="w"/>
+  <rect x="8" y="12" width="1" height="10" class="w"/>
+  <rect x="38" y="9" width="1" height="16" class="w"/>
+  <rect x="39" y="12" width="1" height="10" class="w"/>
+  
+  <!-- === LEFT EAR === -->
+  <rect x="4" y="0" width="4" height="1" class="b"/>
+  <rect x="3" y="1" width="1" height="1" class="b"/>
+  <rect x="8" y="1" width="1" height="2" class="b"/>
+  <rect x="2" y="2" width="1" height="3" class="b"/>
+  <rect x="9" y="3" width="1" height="3" class="b"/>
+  <rect x="3" y="5" width="1" height="2" class="b"/>
+  <rect x="4" y="7" width="2" height="1" class="b"/>
+  <rect x="6" y="8" width="2" height="1" class="b"/>
+  <rect x="8" y="9" width="1" height="1" class="b"/>
+  <!-- Ear fill -->
+  <rect x="4" y="1" width="4" height="4" class="w"/>
+  <rect x="3" y="2" width="1" height="3" class="w"/>
+  <rect x="4" y="5" width="3" height="2" class="w"/>
+  <rect x="6" y="7" width="2" height="1" class="w"/>
+  <rect x="8" y="6" width="1" height="2" class="w"/>
+  
+  <!-- === RIGHT EAR === -->
+  <rect x="40" y="0" width="4" height="1" class="b"/>
+  <rect x="39" y="1" width="1" height="2" class="b"/>
+  <rect x="44" y="1" width="1" height="1" class="b"/>
+  <rect x="38" y="3" width="1" height="3" class="b"/>
+  <rect x="45" y="2" width="1" height="3" class="b"/>
+  <rect x="44" y="5" width="1" height="2" class="b"/>
+  <rect x="38" y="8" width="2" height="1" class="b"/>
+  <rect x="40" y="7" width="2" height="1" class="b"/>
+  <rect x="42" y="6" width="2" height="1" class="b"/>
+  <!-- Ear fill -->
+  <rect x="40" y="1" width="4" height="4" class="w"/>
+  <rect x="44" y="2" width="1" height="3" class="w"/>
+  <rect x="41" y="5" width="3" height="2" class="w"/>
+  <rect x="39" y="6" width="2" height="2" class="w"/>
+  <rect x="40" y="7" width="2" height="1" class="w"/>
+  
+  <!-- === PINK BOW === -->
+  <rect x="34" y="2" width="2" height="3" class="p"/>
+  <rect x="36" y="0" width="6" height="2" class="p"/>
+  <rect x="36" y="2" width="8" height="4" class="p"/>
+  <rect x="36" y="6" width="6" height="2" class="p"/>
+  <rect x="44" y="2" width="2" height="1" class="p"/>
+  <rect x="44" y="5" width="2" height="1" class="p"/>
+  
+  <!-- === EYES === -->
+  <rect x="14" y="14" width="3" height="5" class="b"/>
+  <rect x="31" y="14" width="3" height="5" class="b"/>
+  
+  <!-- === NOSE === -->
+  <rect x="22" y="20" width="4" height="3" class="y"/>
+  
+  <!-- === WHISKERS === -->
+  <!-- Left whiskers -->
+  <rect x="1" y="15" width="6" height="1" class="b"/>
+  <rect x="1" y="18" width="6" height="1" class="b"/>
+  <rect x="1" y="21" width="6" height="1" class="b"/>
+  <!-- Right whiskers -->
+  <rect x="41" y="15" width="6" height="1" class="b"/>
+  <rect x="41" y="18" width="6" height="1" class="b"/>
+  <rect x="41" y="21" width="6" height="1" class="b"/>
+  
+  <!-- === BODY === -->
+  <!-- Red shirt collar -->
+  <rect x="12" y="29" width="24" height="3" class="r"/>
+  <rect x="8" y="32" width="4" height="4" class="r"/>
+  <rect x="36" y="32" width="4" height="4" class="r"/>
+  
+  <!-- Blue overalls -->
+  <rect x="12" y="32" width="24" height="12" class="bl"/>
+  
+  <!-- Yellow buttons -->
+  <rect x="16" y="36" width="3" height="3" class="y"/>
+  <rect x="29" y="36" width="3" height="3" class="y"/>
+  
+  <!-- White arms -->
+  <rect x="4" y="32" width="4" height="8" class="w"/>
+  <rect x="3" y="34" width="1" height="5" class="w"/>
+  <rect x="40" y="32" width="4" height="8" class="w"/>
+  <rect x="44" y="34" width="1" height="5" class="w"/>
+  
+  <!-- Arm outlines -->
+  <rect x="3" y="32" width="1" height="2" class="b"/>
+  <rect x="2" y="34" width="1" height="5" class="b"/>
+  <rect x="3" y="39" width="1" height="1" class="b"/>
+  <rect x="4" y="40" width="4" height="1" class="b"/>
+  <rect x="44" y="32" width="1" height="2" class="b"/>
+  <rect x="45" y="34" width="1" height="5" class="b"/>
+  <rect x="44" y="39" width="1" height="1" class="b"/>
+  <rect x="40" y="40" width="4" height="1" class="b"/>
+  
+  <!-- White legs -->
+  <rect x="12" y="44" width="8" height="8" class="w"/>
+  <rect x="28" y="44" width="8" height="8" class="w"/>
+  
+  <!-- Overalls between legs -->
+  <rect x="20" y="44" width="8" height="8" class="bl"/>
+  
+  <!-- Leg outlines -->
+  <rect x="11" y="44" width="1" height="8" class="b"/>
+  <rect x="12" y="52" width="8" height="1" class="b"/>
+  <rect x="35" y="44" width="1" height="8" class="b"/>
+  <rect x="28" y="52" width="8" height="1" class="b"/>
+</svg>

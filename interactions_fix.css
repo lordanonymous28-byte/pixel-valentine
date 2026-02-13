@@ -1,0 +1,112 @@
+/* ========================
+   Running/Walking Transition Animation
+   ======================== */
+
+.running-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #87CEEB 60%, #7ec850 60%);
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 100px;
+}
+
+.running-overlay.hidden {
+    display: none !important;
+}
+
+.running-kitties {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    animation: runAcross 3s linear forwards;
+}
+
+@keyframes runAcross {
+    0% {
+        transform: translateX(-150vw);
+    }
+
+    100% {
+        transform: translateX(150vw);
+    }
+}
+
+.run-hearts {
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: heartPop 0.5s ease-in-out infinite;
+}
+
+@keyframes heartPop {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+    }
+}
+
+.pixel-hello-kitty.running {
+    animation: kittyRun 0.3s steps(2) infinite, kittyBounce 0.6s steps(2) infinite;
+}
+
+@keyframes kittyRun {
+
+    0%,
+    100% {
+        transform: scale(4) translateY(0);
+    }
+
+    50% {
+        transform: scale(4) translateY(-5px);
+    }
+}
+
+/* ========================
+   Button Interaction Fixes
+   ======================== */
+
+/* Ensure characters don't block clicks */
+.page1-characters,
+.page2-characters,
+.page3-characters,
+.page4-characters {
+    pointer-events: none;
+}
+
+/* Ensure buttons are clickable */
+.pixel-btn {
+    pointer-events: auto !important;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Memory Popup Positioning */
+.memory-popup {
+    position: absolute;
+    background: #fff;
+    border: 4px solid var(--pixel-black);
+    padding: 15px;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    max-width: 300px;
+    font-size: 10px;
+    line-height: 1.5;
+    /* Will be positioned dynamically via JS */
+}
+
+.memory-text {
+    margin: 0;
+}

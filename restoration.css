@@ -1,0 +1,157 @@
+/* ========================
+   Restored Slide Styles
+   ======================== */
+
+/* --- Page 2: Timeline --- */
+.pixel-timeline {
+    position: relative;
+    max-width: 600px;
+    /* Limit width */
+    margin: 40px auto;
+    padding-left: 20px;
+    border-left: 4px solid var(--pixel-white);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    padding-left: 20px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -28px;
+    /* Center on line (line width 4px + padding 20px approx) */
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--pixel-pink);
+    border: 4px solid var(--pixel-white);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--pixel-yellow);
+    transform: scale(1.2);
+}
+
+.timeline-label {
+    background: #fff;
+    border: 4px solid var(--pixel-black);
+    padding: 10px;
+    display: inline-block;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.timeline-label:hover {
+    transform: translateX(4px);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* --- Page 4: Love Cards --- */
+.pixel-love-windows {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.pixel-love-card {
+    background: #fff;
+    border: 4px solid var(--pixel-black);
+    padding: 20px;
+    width: 160px;
+    text-align: center;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.pixel-love-card:hover {
+    transform: translateY(-5px);
+}
+
+.love-icon {
+    font-size: 32px;
+}
+
+.love-text {
+    font-weight: bold;
+    color: var(--pixel-pink-dark);
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.love-caption {
+    font-size: 8px;
+    color: #666;
+}
+
+/* --- Ending Overlay --- */
+.ending-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    /* Dark dim */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ending-content {
+    text-align: center;
+    color: #fff;
+    animation: popIn 0.5s;
+}
+
+.pixel-title.ending {
+    color: var(--pixel-pink-light);
+    text-shadow: 4px 4px 0 var(--pixel-pink-dark);
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.pixel-signature {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--pixel-yellow);
+}
+
+.rain-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+
+    80% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Ensure hidden works */
+.hidden {
+    display: none !important;
+}

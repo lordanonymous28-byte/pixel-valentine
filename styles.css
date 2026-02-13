@@ -1,0 +1,1458 @@
+/* ============================================
+   💖 Valentine's Day Mini-Game Styles
+   ============================================ */
+
+/* === Design Tokens === */
+:root {
+    /* Colors */
+    --pink-light: #ffe4ec;
+    --pink-medium: #ffb6c1;
+    --pink-dark: #ff69b4;
+    --pink-accent: #ff1493;
+    --purple-light: #e8d4f8;
+    --purple-medium: #dda0dd;
+    --lavender: #e6e6fa;
+    --red-love: #ff4757;
+    --white: #ffffff;
+    --text-dark: #4a3640;
+    --text-light: #8b7080;
+
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffb6c1 100%);
+    --gradient-pink: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    --gradient-sunset: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-dreamy: linear-gradient(180deg, #ffeef8 0%, #fff0f5 50%, #ffe4ec 100%);
+
+    /* Typography */
+    --font-heading: 'Fredoka', cursive;
+    --font-body: 'Quicksand', sans-serif;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px rgba(255, 105, 180, 0.3);
+    --shadow-medium: 0 8px 32px rgba(255, 105, 180, 0.4);
+    --shadow-glow: 0 0 40px rgba(255, 105, 180, 0.5);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* === Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--gradient-dreamy);
+    color: var(--text-dark);
+}
+
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* === Page System === */
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.romantic-bg {
+    background: url('assets/romantic_bg_1769254540919.png') center/cover;
+}
+
+.sad-monkey-bg {
+    background: url('assets/sad_monkey_bg_1769254524838.png') center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sad-monkey-bg.visible {
+    opacity: 1;
+}
+
+/* === Ground Layer === */
+.ground-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(180deg,
+            #a8d9a0 0%,
+            #8bc78b 20%,
+            #6ab56a 40%,
+            #5da65d 60%,
+            #4a9a4a 80%,
+            #3d8d3d 100%);
+    z-index: 5;
+    pointer-events: none;
+    border-top: 4px solid #7cc47c;
+    box-shadow: 0 -10px 30px rgba(139, 199, 139, 0.3);
+}
+
+/* Add grass texture with pseudo-element */
+.ground-layer::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background:
+        repeating-linear-gradient(90deg,
+            transparent 0px,
+            transparent 20px,
+            rgba(255, 182, 193, 0.4) 20px,
+            rgba(255, 182, 193, 0.4) 23px,
+            transparent 23px,
+            transparent 50px),
+        repeating-linear-gradient(90deg,
+            transparent 0px,
+            transparent 35px,
+            rgba(255, 105, 180, 0.3) 35px,
+            rgba(255, 105, 180, 0.3) 40px,
+            transparent 40px,
+            transparent 80px);
+    animation: flowersWave 4s ease-in-out infinite;
+}
+
+@keyframes flowersWave {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Sky zone for content - positioned above ground */
+.sky-zone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    z-index: 8;
+}
+
+.page-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* === PAGE 1: Valentine Question === */
+.valentine-question {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--pink-accent);
+    text-shadow:
+        0 2px 10px rgba(255, 20, 147, 0.3),
+        0 0 40px rgba(255, 105, 180, 0.2);
+    margin-bottom: 50px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.button-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.love-btn {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.love-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.love-btn:hover::before {
+    left: 100%;
+}
+
+.yes-btn {
+    background: var(--gradient-sunset);
+    color: white;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-glow);
+}
+
+.no-btn {
+    background: var(--gradient-pink);
+    color: var(--text-dark);
+}
+
+.no-btn:hover {
+    transform: scale(0.95);
+    background: #a0a0a0;
+    color: white;
+}
+
+.not-allowed-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 60px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-medium);
+    z-index: 100;
+    animation: shake 0.5s ease;
+}
+
+.not-allowed-message h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--pink-accent);
+    margin-bottom: 10px;
+}
+
+.not-allowed-message p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+
+    25% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+
+    75% {
+        transform: translate(-50%, -50%) rotate(5deg);
+    }
+}
+
+/* === Characters Base === */
+.characters {
+    position: absolute;
+    bottom: 50px;
+    /* Positioned on top of ground */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    z-index: 20;
+}
+
+.kitty-img,
+.kitty-body {
+    width: 150px;
+    height: auto;
+    transition: var(--transition-smooth);
+    /* Very high brightness and contrast to bleach checkerboard to white */
+    filter:
+        brightness(1.4) contrast(2) saturate(1.5) drop-shadow(0 4px 15px rgba(255, 105, 180, 0.5));
+    /* Multiply blends white out to transparent */
+    mix-blend-mode: multiply;
+}
+
+.male-kitty,
+.female-kitty {
+    position: relative;
+}
+
+/* Page 1 specific characters */
+.page1-characters {
+    bottom: 30px;
+}
+
+.page1-characters .male-kitty {
+    animation: nervousBounce 0.5s ease-in-out infinite;
+}
+
+@keyframes nervousBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+}
+
+/* Running overlay */
+.running-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 240, 245, 0.95) 0%, rgba(255, 240, 245, 0.95) 70%, transparent 70%);
+    z-index: 200;
+    overflow: hidden;
+}
+
+.running-overlay::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(180deg,
+            #a8d9a0 0%,
+            #8bc78b 20%,
+            #6ab56a 40%,
+            #5da65d 60%,
+            #4a9a4a 80%,
+            #3d8d3d 100%);
+    border-top: 4px solid #7cc47c;
+}
+
+.running-kittys {
+    width: 300px;
+    position: absolute;
+    bottom: 100px;
+    /* Run on top of the ground */
+    animation: runAcross 2s ease-in-out forwards;
+}
+
+@keyframes runAcross {
+    0% {
+        left: -300px;
+    }
+
+    100% {
+        left: 100vw;
+    }
+}
+
+/* === PAGE 2: Timeline === */
+.timeline-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--pink-accent);
+    margin-bottom: 40px;
+    text-shadow: 0 2px 10px rgba(255, 20, 147, 0.3);
+}
+
+.timeline {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    overflow-x: auto;
+    max-width: 90vw;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+}
+
+.timeline-item:hover {
+    transform: scale(1.1);
+}
+
+.timeline-date {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--pink-accent);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 15px;
+    transition: var(--transition-smooth);
+}
+
+.timeline-item:hover .timeline-date {
+    background: var(--gradient-sunset);
+    color: white;
+    box-shadow: var(--shadow-glow);
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: var(--pink-dark);
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: var(--shadow-soft);
+}
+
+.memory-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px 50px;
+    border-radius: 25px;
+    box-shadow: var(--shadow-medium);
+    z-index: 50;
+    max-width: 400px;
+    animation: popIn 0.3s ease;
+}
+
+.memory-popup .memory-text {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+@keyframes popIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Characters with following eyes */
+.page2-characters,
+.page3-characters {
+    bottom: 30px;
+}
+
+.page2-characters .kitty-body,
+.page3-characters .kitty-body {
+    width: 120px;
+}
+
+.kitty-with-eyes {
+    position: relative;
+}
+
+.eyes-container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    /* Using image expressions instead */
+}
+
+.eye {
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.pupil {
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+}
+
+/* Nav Arrow */
+.nav-arrow {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-sunset);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-bounce);
+    z-index: 30;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.15);
+    box-shadow: var(--shadow-glow);
+}
+
+/* === PAGE 3: Windows === */
+.windows-title,
+.acts-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--pink-accent);
+    margin-bottom: 30px;
+    text-shadow: 0 2px 10px rgba(255, 20, 147, 0.3);
+}
+
+.windows-container,
+.love-windows-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 95vw;
+    padding: 20px;
+}
+
+.moment-window,
+.love-window {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    width: 350px;
+    transition: var(--transition-bounce);
+}
+
+.moment-window:hover,
+.love-window:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-glow);
+}
+
+.window-header {
+    background: linear-gradient(90deg, #ff6b8a, #ff8fa3);
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.window-btn {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.window-btn.red {
+    background: #ff5f57;
+}
+
+.window-btn.yellow {
+    background: #ffbd2e;
+}
+
+.window-btn.green {
+    background: #28ca41;
+}
+
+.window-title {
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+.window-content {
+    padding: 20px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.window-content img {
+    max-width: 100%;
+    max-height: 180px;
+    border-radius: 10px;
+}
+
+.scene-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.scene-char {
+    max-width: 80px;
+    animation: gentleBounce 1s ease-in-out infinite;
+}
+
+.scene-char.couple {
+    max-width: 150px;
+}
+
+.scene-char.female-solo {
+    max-width: 120px;
+}
+
+@keyframes gentleBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.speech-bubble {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-top-color: white;
+}
+
+.speech-bubble.blushing {
+    background: #ffcccc;
+}
+
+.speech-bubble.evil {
+    background: #e0e0e0;
+}
+
+.kiss-effect {
+    font-size: 4rem;
+    animation: heartBeat 0.5s ease infinite;
+}
+
+.punch-effect {
+    font-size: 2rem;
+    color: var(--red-love);
+    animation: shake 0.3s ease infinite;
+}
+
+.tickle-hands {
+    font-size: 1.5rem;
+    animation: tickle 0.2s ease infinite;
+}
+
+@keyframes tickle {
+
+    0%,
+    100% {
+        transform: translateX(-3px);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.play-scene-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--gradient-pink);
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.play-scene-btn:hover {
+    background: var(--gradient-sunset);
+    color: white;
+}
+
+/* Page 3 Characters */
+.page3-characters .male-kitty {
+    animation: proudPose 2s ease-in-out infinite;
+}
+
+.page3-characters .female-kitty {
+    animation: angryShake 0.3s ease-in-out infinite;
+}
+
+@keyframes proudPose {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+}
+
+@keyframes angryShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    75% {
+        transform: translateX(3px);
+    }
+}
+
+/* Chase overlay */
+.chase-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 240, 245, 0.98) 0%, rgba(255, 240, 245, 0.98) 70%, transparent 70%);
+    z-index: 200;
+    overflow: hidden;
+}
+
+.chase-overlay::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(180deg,
+            #a8d9a0 0%,
+            #8bc78b 20%,
+            #6ab56a 40%,
+            #5da65d 60%,
+            #4a9a4a 80%,
+            #3d8d3d 100%);
+    border-top: 4px solid #7cc47c;
+}
+
+.chase-male,
+.chase-female {
+    position: absolute;
+    width: 150px;
+    bottom: 100px;
+    /* Run on the ground */
+    transform: none;
+}
+
+.chase-male {
+    animation: runAwayMale 2s ease-in-out forwards;
+}
+
+.chase-female {
+    animation: chaseFemale 2s ease-in-out forwards;
+}
+
+@keyframes runAwayMale {
+    0% {
+        left: 40%;
+    }
+
+    100% {
+        left: 120%;
+    }
+}
+
+@keyframes chaseFemale {
+    0% {
+        left: 30%;
+    }
+
+    100% {
+        left: 110%;
+    }
+}
+
+/* === PAGE 4: Acts of Love === */
+.love-window .window-content img {
+    max-height: 200px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.scene-caption {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--pink-accent);
+}
+
+.page4-characters {
+    bottom: 80px;
+}
+
+.happy-couple {
+    width: 200px;
+    animation: happyBounce 1s ease-in-out infinite;
+}
+
+@keyframes happyBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.02);
+    }
+}
+
+.final-arrow {
+    font-size: 2rem;
+}
+
+/* Ending Overlay */
+.ending-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 230, 240, 0.98);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.ending-content {
+    text-align: center;
+    animation: scaleIn 0.8s ease 0.5s backwards;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.ending-text {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--pink-accent);
+    margin-bottom: 30px;
+    text-shadow: 0 2px 20px rgba(255, 20, 147, 0.4);
+}
+
+.final-hug {
+    width: 300px;
+    animation: heartBeat 2s ease infinite;
+    margin-bottom: 30px;
+}
+
+.ending-signature {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUp 4s ease-in-out infinite;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 20%;
+    animation-delay: 0.5s;
+}
+
+.heart:nth-child(3) {
+    left: 35%;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(4) {
+    left: 50%;
+    animation-delay: 1.5s;
+}
+
+.heart:nth-child(5) {
+    left: 65%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(6) {
+    left: 75%;
+    animation-delay: 2.5s;
+}
+
+.heart:nth-child(7) {
+    left: 85%;
+    animation-delay: 3s;
+}
+
+.heart:nth-child(8) {
+    left: 90%;
+    animation-delay: 3.5s;
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -50px;
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 110%;
+        opacity: 0;
+        transform: rotate(360deg);
+    }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .love-btn {
+        padding: 15px 40px;
+        font-size: 1.4rem;
+    }
+
+    .timeline {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .moment-window,
+    .love-window {
+        width: 90vw;
+    }
+
+    .kitty-img,
+    .kitty-body {
+        width: 100px;
+    }
+
+    .windows-container,
+    .love-windows-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* === Glassmorphism Effects === */
+.glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* === Sparkle Animation === */
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* === Page Transition === */
+.page.slide-out-left {
+    animation: slideOutLeft 0.6s ease forwards;
+}
+
+.page.slide-in-right {
+    animation: slideInRight 0.6s ease forwards;
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   💕 Pure CSS Kawaii Kitty Characters
+   ============================================ */
+
+.css-kitty {
+    position: relative;
+    width: 120px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(0 4px 15px rgba(255, 105, 180, 0.5));
+    transition: var(--transition-smooth);
+}
+
+.css-kitty:hover {
+    transform: scale(1.05);
+}
+
+/* Kitty Head */
+.kitty-head {
+    position: relative;
+    width: 100px;
+    height: 85px;
+    background: linear-gradient(135deg, #fff 0%, #ffeef5 100%);
+    border-radius: 50%;
+    border: 3px solid #333;
+    z-index: 2;
+}
+
+/* Ears */
+.kitty-ear {
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    background: linear-gradient(135deg, #fff 0%, #ffeef5 100%);
+    border: 3px solid #333;
+    border-bottom: none;
+    top: -20px;
+}
+
+.kitty-ear::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 20px;
+    background: #ffb6c1;
+    border-radius: 50%;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.kitty-ear.left {
+    left: 5px;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-15deg);
+}
+
+.kitty-ear.right {
+    right: 5px;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(15deg);
+}
+
+/* Eyes */
+.kitty-eyes {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.kitty-eye {
+    width: 8px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+}
+
+/* Nose */
+.kitty-nose {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 6px;
+    background: #ffcc00;
+    border-radius: 50%;
+}
+
+/* Whiskers */
+.kitty-whiskers {
+    position: absolute;
+    top: 52px;
+    width: 100%;
+}
+
+.whisker {
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background: #333;
+}
+
+.whisker.left-1 {
+    left: 5px;
+    top: 0;
+    transform: rotate(-10deg);
+}
+
+.whisker.left-2 {
+    left: 3px;
+    top: 8px;
+    transform: rotate(0deg);
+}
+
+.whisker.left-3 {
+    left: 5px;
+    top: 16px;
+    transform: rotate(10deg);
+}
+
+.whisker.right-1 {
+    right: 5px;
+    top: 0;
+    transform: rotate(10deg);
+}
+
+.whisker.right-2 {
+    right: 3px;
+    top: 8px;
+    transform: rotate(0deg);
+}
+
+.whisker.right-3 {
+    right: 5px;
+    top: 16px;
+    transform: rotate(-10deg);
+}
+
+/* Body */
+.kitty-body-css {
+    position: relative;
+    width: 70px;
+    height: 55px;
+    background: linear-gradient(135deg, #fff 0%, #ffeef5 100%);
+    border: 3px solid #333;
+    border-radius: 35px 35px 25px 25px;
+    margin-top: -15px;
+    z-index: 1;
+}
+
+/* Arms/Paws */
+.kitty-arms {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.kitty-paw {
+    width: 20px;
+    height: 25px;
+    background: linear-gradient(135deg, #fff 0%, #ffeef5 100%);
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+
+/* Bowtie for Male */
+.male-css-kitty .kitty-bowtie {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.kitty-bowtie::before,
+.kitty-bowtie::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 12px;
+    background: #ff4757;
+    border-radius: 50%;
+    border: 2px solid #cc3344;
+}
+
+.kitty-bowtie::before {
+    left: -15px;
+}
+
+.kitty-bowtie::after {
+    right: -15px;
+}
+
+.kitty-bowtie-center {
+    width: 8px;
+    height: 8px;
+    background: #ff4757;
+    border: 2px solid #cc3344;
+    border-radius: 50%;
+    position: relative;
+    z-index: 4;
+}
+
+/* Bow for Female */
+.female-css-kitty .kitty-bow {
+    position: absolute;
+    top: -10px;
+    right: 0px;
+    z-index: 5;
+}
+
+.kitty-bow-left,
+.kitty-bow-right {
+    position: absolute;
+    width: 18px;
+    height: 14px;
+    background: #ff69b4;
+    border: 2px solid #ff1493;
+    border-radius: 50%;
+}
+
+.kitty-bow-left {
+    left: -18px;
+    transform: rotate(-20deg);
+}
+
+.kitty-bow-right {
+    right: -18px;
+    transform: rotate(20deg);
+}
+
+.kitty-bow-center {
+    width: 10px;
+    height: 10px;
+    background: #ff69b4;
+    border: 2px solid #ff1493;
+    border-radius: 50%;
+    position: relative;
+    z-index: 6;
+}
+
+/* Expression variations */
+.css-kitty.happy .kitty-eye {
+    height: 4px;
+    border-radius: 4px 4px 0 0;
+    transform: translateY(4px);
+}
+
+.css-kitty.shy .kitty-eye {
+    height: 2px;
+    border-radius: 2px;
+    transform: translateY(5px);
+}
+
+.css-kitty.shy .blush {
+    display: block;
+}
+
+.blush {
+    display: none;
+    position: absolute;
+    width: 15px;
+    height: 10px;
+    background: rgba(255, 150, 180, 0.6);
+    border-radius: 50%;
+    top: 55px;
+}
+
+.blush.left {
+    left: 12px;
+}
+
+.blush.right {
+    right: 12px;
+}
+
+/* Sad expression */
+.css-kitty.sad .kitty-eye {
+    height: 10px;
+    background: #333;
+}
+
+.css-kitty.sad .kitty-eye::after {
+    content: '💧';
+    position: absolute;
+    font-size: 10px;
+    top: 12px;
+    left: 0;
+}
+
+/* Hide original kitty-img when CSS kitty is present */
+.css-kitty~.kitty-img,
+.css-kitty~img.kitty-img {
+    display: none;
+}

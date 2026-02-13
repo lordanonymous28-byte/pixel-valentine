@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A retro pixel art Valentine's Day interactive mini-game starring Hello Kitty">
+    <title>💖 Be My Valentine? 💖 - Pixel Edition</title>
+    <link rel="stylesheet" href="pixel-styles.css?v=3">
+</head>
+
+<body>
+    <div class="game-container">
+
+        <!-- ============ PAGE 1: Be My Valentine? ============ -->
+        <section id="page-1" class="page active">
+            <!-- Pixel Art Background -->
+            <div class="page-bg pixel-sky">
+                <div class="pixel-clouds">
+                    <div class="pixel-cloud"></div>
+                    <div class="pixel-cloud"></div>
+                    <div class="pixel-cloud"></div>
+                    <div class="pixel-cloud"></div>
+                </div>
+                <div class="pixel-hearts">
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <h1 class="pixel-title">Will you be<br>my Valentine?</h1>
+
+                <div class="pixel-buttons">
+                    <button id="btn-yes" class="pixel-btn yes-btn">YES 💕</button>
+                    <button id="btn-no" class="pixel-btn no-btn">NO 💔</button>
+                </div>
+
+                <div class="not-allowed-message hidden">
+                    <img src="hello_kitty_holding_gun.png" class="wrong-answer-img" alt="Wrong Answer">
+                    <h2 class="pixel-subtitle">Wrong Answer!</h2>
+                    <p class="pixel-text">Try again!</p>
+                </div>
+            </div>
+
+            <!-- Pixel Hello Kitty Characters -->
+            <div class="characters page1-characters">
+                <div class="pixel-hello-kitty male" id="male-kitty-p1">
+                    <div class="hk-head">
+                        <div class="hk-ear left"></div>
+                        <div class="hk-ear right"></div>
+                        <div class="hk-face">
+                            <div class="hk-eye left"></div>
+                            <div class="hk-eye right"></div>
+                            <div class="hk-nose"></div>
+                            <div class="hk-whisker left top"></div>
+                            <div class="hk-whisker left mid"></div>
+                            <div class="hk-whisker left bot"></div>
+                            <div class="hk-whisker right top"></div>
+                            <div class="hk-whisker right mid"></div>
+                            <div class="hk-whisker right bot"></div>
+                        </div>
+                        <div class="hk-bowtie">
+                            <div class="bowtie-left"></div>
+                            <div class="bowtie-center"></div>
+                            <div class="bowtie-right"></div>
+                        </div>
+                    </div>
+                    <div class="hk-body">
+                        <div class="hk-arm left"></div>
+                        <div class="hk-arm right"></div>
+                    </div>
+                </div>
+                <div class="pixel-hello-kitty female" id="female-kitty-p1">
+                    <div class="hk-head">
+                        <div class="hk-ear left"></div>
+                        <div class="hk-ear right"></div>
+                        <div class="hk-bow">
+                            <div class="bow-left"></div>
+                            <div class="bow-center"></div>
+                            <div class="bow-right"></div>
+                        </div>
+                        <div class="hk-face">
+                            <div class="hk-eye left"></div>
+                            <div class="hk-eye right"></div>
+                            <div class="hk-nose"></div>
+                            <div class="hk-whisker left top"></div>
+                            <div class="hk-whisker left mid"></div>
+                            <div class="hk-whisker left bot"></div>
+                            <div class="hk-whisker right top"></div>
+                            <div class="hk-whisker right mid"></div>
+                            <div class="hk-whisker right bot"></div>
+                        </div>
+                    </div>
+                    <div class="hk-body">
+                        <div class="hk-arm left"></div>
+                        <div class="hk-arm right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pixel Ground -->
+            <div class="pixel-ground">
+                <div class="ground-grass"></div>
+                <div class="ground-dirt"></div>
+            </div>
+        </section>
+
+        <!-- ============ PAGE 2: Memories Timeline ============ -->
+        <section id="page-2" class="page">
+            <div class="page-bg pixel-sky sunset">
+                <div class="pixel-clouds">
+                    <div class="pixel-cloud"></div>
+                    <div class="pixel-cloud"></div>
+                </div>
+                <div class="pixel-hearts">
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <h1 class="pixel-title small">Our Beautiful<br>Memories 💞</h1>
+
+                <div class="pixel-timeline">
+                    <div class="timeline-item" data-memory="(you texted me first hehe)">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">10th Oct 2024</div>
+                    </div>
+                    <div class="timeline-item" data-memory="First fight">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">29th Oct 2024</div>
+                    </div>
+                    <div class="timeline-item" data-memory="admitted that we liked each other">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">10th Dec 2024</div>
+                    </div>
+                    <div class="timeline-item" data-memory="First kiss">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">13th Dec 2024</div>
+                    </div>
+                    <div class="timeline-item" data-memory="officially started &quot;dating&quot;">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">9th Jan 2025</div>
+                    </div>
+                    <div class="timeline-item" data-memory="When we said I love you">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-label">9th Feb 2025</div>
+                    </div>
+                </div>
+
+                <div class="memory-popup hidden">
+                    <p class="memory-text"></p>
+                </div>
+            </div>
+
+            <!-- Characters with following eyes -->
+            <div class="characters page2-characters">
+                <div class="pixel-hello-kitty male with-eyes" id="male-kitty-p2">
+                    <div class="hk-head">
+                        <div class="hk-ear left"></div>
+                        <div class="hk-ear right"></div>
+                        <div class="hk-face">
+                            <div class="hk-eye left">
+                                <div class="hk-pupil"></div>
+                            </div>
+                            <div class="hk-eye right">
+                                <div class="hk-pupil"></div>
+                            </div>
+                            <div class="hk-nose"></div>
+                            <div class="hk-whisker left top"></div>
+                            <div class="hk-whisker left mid"></div>
+                            <div class="hk-whisker left bot"></div>
+                            <div class="hk-whisker right top"></div>
+                            <div class="hk-whisker right mid"></div>
+                            <div class="hk-whisker right bot"></div>
+                        </div>
+                        <div class="hk-bowtie">
+                            <div class="bowtie-left"></div>
+                            <div class="bowtie-center"></div>
+                            <div class="bowtie-right"></div>
+                        </div>
+                    </div>
+                    <div class="hk-body">
+                        <div class="hk-arm left"></div>
+                        <div class="hk-arm right"></div>
+                    </div>
+                </div>
+                <div class="pixel-hello-kitty female with-eyes" id="female-kitty-p2">
+                    <div class="hk-head">
+                        <div class="hk-ear left"></div>
+                        <div class="hk-ear right"></div>
+                        <div class="hk-bow">
+                            <div class="bow-left"></div>
+                            <div class="bow-center"></div>
+                            <div class="bow-right"></div>
+                        </div>
+                        <div class="hk-face">
+                            <div class="hk-eye left">
+                                <div class="hk-pupil"></div>
+                            </div>
+                            <div class="hk-eye right">
+                                <div class="hk-pupil"></div>
+                            </div>
+                            <div class="hk-nose"></div>
+                            <div class="hk-whisker left top"></div>
+                            <div class="hk-whisker left mid"></div>
+                            <div class="hk-whisker left bot"></div>
+                            <div class="hk-whisker right top"></div>
+                            <div class="hk-whisker right mid"></div>
+                            <div class="hk-whisker right bot"></div>
+                        </div>
+                    </div>
+                    <div class="hk-body">
+                        <div class="hk-arm left"></div>
+                        <div class="hk-arm right"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pixel-ground">
+                <div class="ground-grass"></div>
+                <div class="ground-dirt"></div>
+            </div>
+
+            <button id="next-page-2" class="pixel-nav-arrow">▶</button>
+        </section>
+
+        <!-- ============ PAGE 3: Cute Moments Windows ============ -->
+        <section id="page-3" class="page">
+            <div class="page-bg pixel-sky evening">
+                <div class="pixel-hearts">
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <h1 class="pixel-title small">Our Cute<br>Moments 💋</h1>
+
+                <div class="pixel-windows-container">
+                    <!-- Window 1: Kiss Scene -->
+                    <div class="pixel-window" id="window-kiss">
+                        <div class="pixel-window-header">
+                            <span class="pw-btn red"></span>
+                            <span class="pw-btn yellow"></span>
+                            <span class="pw-btn green"></span>
+                            <span class="pw-title">Sneaky Kiss 💋</span>
+                        </div>
+                        <div class="pixel-window-content">
+                            <!-- Video Element (Autoplay) -->
+                            <video id="kiss-video" class="scene-media" src="assets/kissing.mp4" playsinline loop
+                                muted></video>
+                        </div>
+                    </div>
+
+                    <!-- Window 2: Tickle Scene -->
+                    <div class="pixel-window" id="window-tickle">
+                        <div class="pixel-window-header">
+                            <span class="pw-btn red"></span>
+                            <span class="pw-btn yellow"></span>
+                            <span class="pw-btn green"></span>
+                            <span class="pw-title">Tickle Time 😂</span>
+                        </div>
+                        <div class="pixel-window-content">
+                            <!-- Image Element (Always visible) -->
+                            <img id="tickle-img" class="scene-media" src="assets/tickle_image.png" alt="Tickle Scene">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Characters at bottom -->
+            <div class="characters page3-characters">
+                <div class="pixel-hello-kitty male proud" id="male-kitty-p3"></div>
+                <div class="pixel-hello-kitty female angry" id="female-kitty-p3"></div>
+            </div>
+
+            <div class="pixel-ground">
+                <div class="ground-grass"></div>
+                <div class="ground-dirt"></div>
+            </div>
+
+            <button id="next-page-3" class="pixel-nav-arrow">▶</button>
+        </section>
+
+        <!-- ============ PAGE 4: Acts of Love ============ -->
+        <section id="page-4" class="page">
+            <div class="page-bg pixel-sky romantic">
+                <div class="pixel-hearts many">
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                    <div class="pixel-heart"></div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <h1 class="pixel-title small">Benefits of<br>dating me 💗</h1>
+
+                <div class="pixel-love-windows">
+                    <div class="pixel-love-card">
+                        <img src="assets/sleeping_kitty.png" class="love-scene-img" alt="Cuddles">
+                        <div class="love-caption">We can nap together all day! 💤</div>
+                    </div>
+                    <div class="pixel-love-card">
+                        <img src="assets/shopping_kitty.png" class="love-scene-img" alt="Shopping">
+                        <div class="love-caption">I'll buy you everything! 💳</div>
+                    </div>
+                    <div class="pixel-love-card">
+                        <img src="assets/cooking_kitty.png" class="love-scene-img" alt="Cooking">
+                        <div class="love-caption">This is how I'll take care of you 🥘</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Happy couple at bottom -->
+            <div class="characters page4-characters">
+                <div class="pixel-couple">
+                    <div class="pixel-hello-kitty male happy"></div>
+                    <div class="pixel-hello-kitty female happy"></div>
+                    <div class="couple-heart">💕</div>
+                </div>
+            </div>
+
+            <div class="pixel-ground">
+                <div class="ground-grass"></div>
+                <div class="ground-dirt"></div>
+            </div>
+
+            <button id="show-ending" class="pixel-nav-arrow final">💖</button>
+
+            <!-- Ending Overlay -->
+            <div class="ending-overlay hidden" id="ending-overlay">
+                <div class="ending-content scrollable">
+
+                    <div class="collage-message">
+                        <p>To The sexy queen going to Northeastern</p>
+                        <p>Thank you so much for choosing me even when it's tough and always sticking by me and making
+                            my life so much better. I love you so much cannot wait to live with you g. So excited for
+                            our future together.</p>
+                        <p>Happy Valentines Babygirl</p>
+                        <p class="signature">From your monkey boyyyy</p>
+                    </div>
+
+                    <div class="collage-grid">
+                        <!-- Videos -->
+                        <div class="collage-item video">
+                            <video src="end_collage/IMG_0041.MOV" autoplay loop muted playsinline></video>
+                        </div>
+                        <div class="collage-item video">
+                            <video src="end_collage/e82e340b-5ffa-4448-a5d9-27819a07632e.mp4" autoplay loop muted
+                                playsinline></video>
+                        </div>
+                        <div class="collage-item video">
+                            <video src="end_collage/IMG_0969.mov" autoplay loop muted playsinline></video>
+                        </div>
+                        <div class="collage-item video">
+                            <video src="end_collage/IMG_0971.mov" autoplay loop muted playsinline></video>
+                        </div>
+                        <div class="collage-item video">
+                            <video src="end_collage/IMG_0976.mov" autoplay loop muted playsinline></video>
+                        </div>
+
+                        <!-- Images -->
+                        <div class="collage-item"><img src="end_collage/150d7ba6-e2cc-431d-89c2-36eb51407827.jpg"
+                                loading="lazy" alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/29EEB987-3F9F-45E4-9B1F-2EC4F4ACD06A.jpg"
+                                loading="lazy" alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/6e7547ea-5fa5-4372-a46d-97c0aca345cd.jpg"
+                                loading="lazy" alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/IMG-20250119-WA0032.jpg" loading="lazy"
+                                alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/IMG-20250209-WA0021.jpg" loading="lazy"
+                                alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/IMG-20250216-WA0006.jpg" loading="lazy"
+                                alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/Screenshot 2026-02-13 at 21.48.23.png"
+                                loading="lazy" alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/IMG_0149.PNG" loading="lazy" alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/IMG_0152.PNG" loading="lazy" alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/PXL_20250119_075011605.jpg" loading="lazy"
+                                alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/PXL_20250119_075235236.jpg" loading="lazy"
+                                alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/PXL_20250209_090241154.jpg" loading="lazy"
+                                alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/PXL_20250209_112050676.jpg" loading="lazy"
+                                alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/IMG_0969.heic.jpg" loading="lazy" alt="Memory">
+                        </div>
+                        <div class="collage-item"><img src="end_collage/IMG_0971.heic.jpg" loading="lazy" alt="Memory">
+                        </div>
+                        <div class="collage-item"><img src="end_collage/IMG_0976.heic.jpg" loading="lazy" alt="Memory">
+                        </div>
+                        <div class="collage-item"><img src="end_collage/IMG-20241215-WA0011.jpg" loading="lazy"
+                                alt="Memory"></div>
+                        <div class="collage-item"><img src="end_collage/IMG_0051.jpg" loading="lazy" alt="Memory">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Running animation overlay (outside page sections for visibility during transitions) -->
+        <div class="running-overlay hidden" id="running-overlay">
+            <div class="running-kitties">
+                <div class="pixel-hello-kitty male running"></div>
+                <div class="pixel-hello-kitty female running"></div>
+                <div class="run-hearts">💕💕💕</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="pixel-script.js"></script>
+</body>
+
+</html>

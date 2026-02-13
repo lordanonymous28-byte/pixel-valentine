@@ -1,0 +1,187 @@
+/* ========================
+   Restored Window Styles
+   ======================== */
+
+.pixel-windows-container {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.pixel-window {
+    width: 300px;
+    background: #fff;
+    border: 4px solid var(--pixel-black);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.pixel-window-header {
+    background: #e0e0e0;
+    border-bottom: 4px solid var(--pixel-black);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pw-btn {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--pixel-black);
+    display: inline-block;
+}
+
+.pw-btn.red {
+    background: #ff5f56;
+}
+
+.pw-btn.yellow {
+    background: #ffbd2e;
+}
+
+.pw-btn.green {
+    background: #27c93f;
+}
+
+.pw-title {
+    font-size: 10px;
+    margin-left: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.pixel-window-content {
+    background: #fff;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scene-frame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pixel-play-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--pixel-black);
+    color: var(--pixel-white);
+    border: none;
+    font-family: var(--font-pixel);
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.pixel-play-btn:hover {
+    background: var(--pixel-pink);
+}
+
+/* Mini Kitties - Using the extracted shadows */
+.mini-hk {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    transform: scale(2);
+    /* Smaller scale for windows */
+    transform-origin: center bottom;
+    image-rendering: pixelated;
+}
+
+.mini-hk::before,
+.mini-hk::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+}
+
+/* Couple: Male (Before) + Female (After) */
+.mini-hk.couple {
+    width: 64px;
+    /* Double width */
+}
+
+.mini-hk.couple::before {
+    /* Male Shadow will be applied here */
+    transform: translateX(-12px);
+    /* Shift left */
+}
+
+.mini-hk.couple::after {
+    /* Female Shadow will be applied here */
+    transform: translateX(12px);
+    /* Shift right */
+}
+
+/* Animations/Effects in Windows */
+.pixel-speech-bubble {
+    background: #fff;
+    border: 2px solid #000;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 8px;
+    position: absolute;
+    top: 10px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.kiss-effect {
+    font-size: 24px;
+    animation: pop 0.5s infinite;
+}
+
+.bonk-effect {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    animation: shake 0.2s infinite;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    75% {
+        transform: translateX(2px);
+    }
+}
