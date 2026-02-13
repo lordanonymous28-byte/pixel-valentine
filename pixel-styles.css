@@ -1667,7 +1667,7 @@ body {
 
 @keyframes runAcross {
     0% {
-        transform: translateX(-150vw);
+        transform: translateX(-20vw);
     }
 
     100% {
